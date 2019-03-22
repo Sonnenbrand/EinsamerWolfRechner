@@ -528,7 +528,13 @@ def kampfNeu():
     global MonsterAusdauer
     global HeldenKraft
     global MonsterKraft
-    KampfQoutient = HeldenKraft - MonsterKraft  # TODO: Wenn der KQ <> 11. Gibt das ein Ergebniss? Ansonsten beschränken.
+    KampfQoutient = HeldenKraft - MonsterKraft
+        # Schöner Trick aus dem Udemy Kurs gelernt!
+    if KampfQoutient >= 12:
+        KampfQoutient = 11
+    if KampfQoutient <= -12:
+        KampfQoutient = -11
+
     Teil1 = str(Zufallszahl) + str(KampfQoutient)
     HeldenAusdauer = HeldenAusdauer + KampfErgebnisseH[Teil1]
     MonsterAusdauer = MonsterAusdauer + KampfErgebnisseF[Teil1]
